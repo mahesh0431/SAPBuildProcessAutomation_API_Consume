@@ -1,0 +1,37 @@
+{
+  "name": "SAPCloudSDK-SAPBuild-CAP-PrincipalPropagation",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap-cloud-sdk/connectivity": "^2.14.0",
+    "@sap-cloud-sdk/generator": "^2.14.0",
+    "@sap-cloud-sdk/openapi-generator": "^2.14.0",
+    "@sap/cds": "^6",
+    "@sap/xssec": "^3",
+    "@types/express": "^4.17.16",
+    "express": "^4.18.2",
+    "passport": "^0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "sqlite3": "^5.0.4"
+  },
+  "scripts": {
+    "start": "cds-ts watch --profile hybrid"
+  },
+  "cds": {
+    "requires": {
+      "[hybrid]": {
+        "auth": {
+          "kind": "xsuaa"
+        }
+      },
+      "approuter": {
+        "kind": "cloudfoundry"
+      }
+    }
+  }
+}

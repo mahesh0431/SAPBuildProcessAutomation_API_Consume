@@ -1,0 +1,248 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="com.sap.bpm.wfs.tcm.metadata">
+<EntityType Name="CustomAttribute">
+<Key>
+<PropertyRef Name="SAP__Origin"/>
+<PropertyRef Name="InstanceID"/>
+<PropertyRef Name="Name"/>
+</Key>
+<Property Name="SAP__Origin" Type="Edm.String" Nullable="false" MaxLength="16"/>
+<Property Name="InstanceID" Type="Edm.String" Nullable="false"/>
+<Property Name="Name" Type="Edm.String" Nullable="false"/>
+<Property Name="Value" Type="Edm.String" Nullable="true"/>
+</EntityType>
+<EntityType Name="CustomAttributeDefinition">
+<Key>
+<PropertyRef Name="SAP__Origin"/>
+<PropertyRef Name="TaskDefinitionID"/>
+<PropertyRef Name="Name"/>
+</Key>
+<Property Name="SAP__Origin" Type="Edm.String" Nullable="false" MaxLength="16"/>
+<Property Name="TaskDefinitionID" Type="Edm.String" Nullable="false"/>
+<Property Name="Name" Type="Edm.String" Nullable="false"/>
+<Property Name="Type" Type="Edm.String" Nullable="true"/>
+<Property Name="Label" Type="Edm.String" Nullable="true"/>
+</EntityType>
+<EntityType Name="SubstitutionRule">
+<Key>
+<PropertyRef Name="SAP__Origin"/>
+<PropertyRef Name="SubstitutionRuleID"/>
+</Key>
+<Property Name="SAP__Origin" Type="Edm.String" Nullable="false" MaxLength="16"/>
+<Property Name="SubstitutionRuleID" Type="Edm.String" Nullable="false" MaxLength="64"/>
+<Property Name="User" Type="Edm.String" Nullable="false" MaxLength="255"/>
+<Property Name="FullName" Type="Edm.String" Nullable="false" MaxLength="255"/>
+<Property Name="BeginDate" Type="Edm.DateTime" Nullable="false"/>
+<Property Name="EndDate" Type="Edm.DateTime" Nullable="true"/>
+<Property Name="IsEnabled" Type="Edm.Boolean" Nullable="false"/>
+<Property Name="Mode" Type="Edm.String" Nullable="false" MaxLength="64"/>
+<Property Name="SupportsDeleteSubstitutionRule" Type="Edm.Boolean" Nullable="true"/>
+<Property Name="SupportsEnableSubstitutionRule" Type="Edm.Boolean" Nullable="true"/>
+</EntityType>
+<EntityType Name="Task">
+<Key>
+<PropertyRef Name="SAP__Origin"/>
+<PropertyRef Name="InstanceID"/>
+</Key>
+<Property Name="SAP__Origin" Type="Edm.String" Nullable="false" MaxLength="16"/>
+<Property Name="InstanceID" Type="Edm.String" Nullable="false"/>
+<Property Name="TaskDefinitionID" Type="Edm.String" Nullable="true"/>
+<Property Name="TaskDefinitionName" Type="Edm.String" Nullable="true"/>
+<Property Name="Status" Type="Edm.String" Nullable="true"/>
+<Property Name="TaskTitle" Type="Edm.String" Nullable="true"/>
+<Property Name="HasComments" Type="Edm.Boolean" Nullable="true"/>
+<Property Name="HasAttachments" Type="Edm.Boolean" Nullable="true"/>
+<Property Name="HasPotentialOwners" Type="Edm.Boolean" Nullable="true"/>
+<Property Name="SupportsClaim" Type="Edm.Boolean" Nullable="true"/>
+<Property Name="SupportsRelease" Type="Edm.Boolean" Nullable="true"/>
+<Property Name="SupportsForward" Type="Edm.Boolean" Nullable="true"/>
+<Property Name="SupportsComments" Type="Edm.Boolean" Nullable="true"/>
+<Property Name="SupportsAttachments" Type="Edm.Boolean" Nullable="true"/>
+<Property Name="CreatedOn" Type="Edm.DateTime" Nullable="true"/>
+<Property Name="CreatedBy" Type="Edm.String" Nullable="true"/>
+<Property Name="CreatedByName" Type="Edm.String" Nullable="true"/>
+<Property Name="Processor" Type="Edm.String" Nullable="true"/>
+<Property Name="CompletionDeadLine" Type="Edm.DateTime" Nullable="true"/>
+<Property Name="SubstitutedUserName" Type="Edm.String" Nullable="true"/>
+<Property Name="Priority" Type="Edm.String" Nullable="true"/>
+<Property Name="PriorityNumber" Type="Edm.Int32" Nullable="true"/>
+<Property Name="TaskSupports" Type="com.sap.bpm.wfs.tcm.metadata.TaskSupports"/>
+<Property Name="GUI_Link" Type="Edm.String" Nullable="true"/>
+<Property Name="ConfidenceLevel" Type="Edm.Decimal" Nullable="true"/>
+<NavigationProperty Name="Description" Relationship="com.sap.bpm.wfs.tcm.metadata.Task_2_r_TaskDescription" FromRole="Task" ToRole="r_TaskDescription"/>
+<NavigationProperty Name="TaskDefinitionData" Relationship="com.sap.bpm.wfs.tcm.metadata.Task_2_r_TaskDefinition" FromRole="Task" ToRole="r_TaskDefinition"/>
+<NavigationProperty Name="CustomAttributeData" Relationship="com.sap.bpm.wfs.tcm.metadata.Task_2_r_CustomAttribute" FromRole="Task" ToRole="r_CustomAttribute"/>
+<NavigationProperty Name="WorkflowLogs" Relationship="com.sap.bpm.wfs.tcm.metadata.Task_2_r_WorkflowLog" FromRole="Task" ToRole="r_WorkflowLog"/>
+</EntityType>
+<EntityType Name="TaskDefinition">
+<Key>
+<PropertyRef Name="SAP__Origin"/>
+<PropertyRef Name="TaskDefinitionID"/>
+</Key>
+<Property Name="SAP__Origin" Type="Edm.String" Nullable="false" MaxLength="16"/>
+<Property Name="TaskDefinitionID" Type="Edm.String" Nullable="false"/>
+<Property Name="TaskName" Type="Edm.String" Nullable="true"/>
+<Property Name="Category" Type="Edm.String" Nullable="true"/>
+<NavigationProperty Name="CustomAttributeDefinitionData" Relationship="com.sap.bpm.wfs.tcm.metadata.TaskDefinition_2_r_CustomAttributeDefinition" FromRole="TaskDefinition" ToRole="r_CustomAttributeDefinition"/>
+</EntityType>
+<EntityType Name="TaskDescription">
+<Key>
+<PropertyRef Name="SAP__Origin"/>
+<PropertyRef Name="InstanceID"/>
+</Key>
+<Property Name="SAP__Origin" Type="Edm.String" Nullable="false" MaxLength="16"/>
+<Property Name="InstanceID" Type="Edm.String" Nullable="false"/>
+<Property Name="Description" Type="Edm.String" Nullable="false"/>
+</EntityType>
+<EntityType Name="UserInfo">
+<Key>
+<PropertyRef Name="SAP__Origin"/>
+<PropertyRef Name="UniqueName"/>
+</Key>
+<Property Name="SAP__Origin" Type="Edm.String" Nullable="false" MaxLength="16"/>
+<Property Name="UniqueName" Type="Edm.String" Nullable="false"/>
+<Property Name="Address" Type="com.sap.bpm.wfs.tcm.metadata.Address"/>
+<Property Name="DisplayName" Type="Edm.String" Nullable="true"/>
+<Property Name="FirstName" Type="Edm.String" Nullable="true"/>
+<Property Name="LastName" Type="Edm.String" Nullable="true"/>
+<Property Name="Company" Type="Edm.String" Nullable="true"/>
+<Property Name="Department" Type="Edm.String" Nullable="true"/>
+<Property Name="Email" Type="Edm.String" Nullable="true"/>
+<Property Name="WorkPhone" Type="Edm.String" Nullable="true"/>
+<Property Name="MobilePhone" Type="Edm.String" Nullable="true"/>
+<Property Name="HomePhone" Type="Edm.String" Nullable="true"/>
+<Property Name="mime_type" Type="Edm.String" Nullable="true"/>
+</EntityType>
+<EntityType Name="WorkflowLog">
+<Key>
+<PropertyRef Name="SAP__Origin"/>
+<PropertyRef Name="InstanceID"/>
+<PropertyRef Name="EventOrder"/>
+</Key>
+<Property Name="SAP__Origin" Type="Edm.String" Nullable="false" MaxLength="16"/>
+<Property Name="InstanceID" Type="Edm.String" Nullable="false"/>
+<Property Name="EventOrder" Type="Edm.Int32" Nullable="false"/>
+<Property Name="ReferenceInstanceID" Type="Edm.String" Nullable="false"/>
+<Property Name="PerformedBy" Type="Edm.String" Nullable="true"/>
+<Property Name="PerformedByName" Type="Edm.String" Nullable="true"/>
+<Property Name="Status" Type="Edm.String" Nullable="false"/>
+<Property Name="Timestamp" Type="Edm.DateTime" Nullable="true" Precision="7"/>
+<Property Name="Description" Type="Edm.String" Nullable="true"/>
+<Property Name="SupportsNavigation" Type="Edm.Boolean" Nullable="true"/>
+<Property Name="Result" Type="Edm.String" Nullable="true"/>
+<Property Name="ResultType" Type="Edm.String" Nullable="true"/>
+<Property Name="CreationTimestamp" Type="Edm.DateTime" Nullable="true" Precision="7"/>
+<Property Name="EndTimestamp" Type="Edm.DateTime" Nullable="true" Precision="7"/>
+<NavigationProperty Name="PerformedByDetails" Relationship="com.sap.bpm.wfs.tcm.metadata.WorkflowLog_2_r_PerformedByDetails" FromRole="WorkflowLog" ToRole="r_PerformedByDetails"/>
+</EntityType>
+<ComplexType Name="Address">
+<Property Name="Street" Type="Edm.String" Nullable="true"/>
+<Property Name="StreetNumber" Type="Edm.String" Nullable="true"/>
+<Property Name="City" Type="Edm.String" Nullable="true"/>
+<Property Name="PostalCode" Type="Edm.String" Nullable="true"/>
+<Property Name="State" Type="Edm.String" Nullable="true"/>
+<Property Name="Country" Type="Edm.String" Nullable="true"/>
+</ComplexType>
+<ComplexType Name="DecisionOption"/>
+<ComplexType Name="SubstitutionRuleReturn">
+<Property Name="Deleted" Type="Edm.Boolean" Nullable="false"/>
+</ComplexType>
+<ComplexType Name="TaskSupports">
+<Property Name="Description" Type="Edm.Boolean" Nullable="true"/>
+<Property Name="CustomAttributeData" Type="Edm.Boolean" Nullable="true"/>
+<Property Name="UIExecutionLink" Type="Edm.Boolean" Nullable="true"/>
+<Property Name="WorkflowLog" Type="Edm.Boolean" Nullable="true"/>
+<Property Name="Claim" Type="Edm.Boolean" Nullable="true"/>
+<Property Name="Release" Type="Edm.Boolean" Nullable="true"/>
+<Property Name="Forward" Type="Edm.Boolean" Nullable="true"/>
+</ComplexType>
+<Association Name="Task_2_r_TaskDescription">
+<End Type="com.sap.bpm.wfs.tcm.metadata.Task" Multiplicity="1" Role="Task"/>
+<End Type="com.sap.bpm.wfs.tcm.metadata.TaskDescription" Multiplicity="1" Role="r_TaskDescription"/>
+</Association>
+<Association Name="Task_2_r_WorkflowLog">
+<End Type="com.sap.bpm.wfs.tcm.metadata.Task" Multiplicity="1" Role="Task"/>
+<End Type="com.sap.bpm.wfs.tcm.metadata.WorkflowLog" Multiplicity="*" Role="r_WorkflowLog"/>
+</Association>
+<Association Name="WorkflowLog_2_r_PerformedByDetails">
+<End Type="com.sap.bpm.wfs.tcm.metadata.WorkflowLog" Multiplicity="1" Role="WorkflowLog"/>
+<End Type="com.sap.bpm.wfs.tcm.metadata.UserInfo" Multiplicity="1" Role="r_PerformedByDetails"/>
+</Association>
+<Association Name="Task_2_r_TaskDefinition">
+<End Type="com.sap.bpm.wfs.tcm.metadata.Task" Multiplicity="1" Role="Task"/>
+<End Type="com.sap.bpm.wfs.tcm.metadata.TaskDefinition" Multiplicity="1" Role="r_TaskDefinition"/>
+</Association>
+<Association Name="TaskDefinition_2_r_CustomAttributeDefinition">
+<End Type="com.sap.bpm.wfs.tcm.metadata.TaskDefinition" Multiplicity="1" Role="TaskDefinition"/>
+<End Type="com.sap.bpm.wfs.tcm.metadata.CustomAttributeDefinition" Multiplicity="*" Role="r_CustomAttributeDefinition"/>
+</Association>
+<Association Name="Task_2_r_CustomAttribute">
+<End Type="com.sap.bpm.wfs.tcm.metadata.Task" Multiplicity="1" Role="Task"/>
+<End Type="com.sap.bpm.wfs.tcm.metadata.CustomAttribute" Multiplicity="*" Role="r_CustomAttribute"/>
+</Association>
+<EntityContainer Name="DefaultContainer" m:IsDefaultEntityContainer="true">
+<EntitySet Name="CustomAttributeCollection" EntityType="com.sap.bpm.wfs.tcm.metadata.CustomAttribute"/>
+<EntitySet Name="CustomAttributeDefinitionCollection" EntityType="com.sap.bpm.wfs.tcm.metadata.CustomAttributeDefinition"/>
+<EntitySet Name="SubstitutesRuleCollection" EntityType="com.sap.bpm.wfs.tcm.metadata.SubstitutionRule"/>
+<EntitySet Name="SubstitutionRuleCollection" EntityType="com.sap.bpm.wfs.tcm.metadata.SubstitutionRule"/>
+<EntitySet Name="TaskCollection" EntityType="com.sap.bpm.wfs.tcm.metadata.Task"/>
+<EntitySet Name="TaskDefinitionCollection" EntityType="com.sap.bpm.wfs.tcm.metadata.TaskDefinition"/>
+<EntitySet Name="TaskDescriptionCollection" EntityType="com.sap.bpm.wfs.tcm.metadata.TaskDescription"/>
+<EntitySet Name="UserInfoCollection" EntityType="com.sap.bpm.wfs.tcm.metadata.UserInfo"/>
+<EntitySet Name="WorkflowLogCollection" EntityType="com.sap.bpm.wfs.tcm.metadata.WorkflowLog"/>
+<AssociationSet Name="Task_2_r_TaskDescription" Association="com.sap.bpm.wfs.tcm.metadata.Task_2_r_TaskDescription">
+<End EntitySet="TaskCollection" Role="Task"/>
+<End EntitySet="TaskDescriptionCollection" Role="r_TaskDescription"/>
+</AssociationSet>
+<AssociationSet Name="Task_2_r_WorkflowLog" Association="com.sap.bpm.wfs.tcm.metadata.Task_2_r_WorkflowLog">
+<End EntitySet="TaskCollection" Role="Task"/>
+<End EntitySet="WorkflowLogCollection" Role="r_WorkflowLog"/>
+</AssociationSet>
+<AssociationSet Name="WorkflowLog_2_r_PerformedByDetails" Association="com.sap.bpm.wfs.tcm.metadata.WorkflowLog_2_r_PerformedByDetails">
+<End EntitySet="WorkflowLogCollection" Role="WorkflowLog"/>
+<End EntitySet="UserInfoCollection" Role="r_PerformedByDetails"/>
+</AssociationSet>
+<AssociationSet Name="Task_2_r_TaskDefinition" Association="com.sap.bpm.wfs.tcm.metadata.Task_2_r_TaskDefinition">
+<End EntitySet="TaskCollection" Role="Task"/>
+<End EntitySet="TaskDefinitionCollection" Role="r_TaskDefinition"/>
+</AssociationSet>
+<AssociationSet Name="TaskDefinition_2_r_CustomAttributeDefinition" Association="com.sap.bpm.wfs.tcm.metadata.TaskDefinition_2_r_CustomAttributeDefinition">
+<End EntitySet="TaskDefinitionCollection" Role="TaskDefinition"/>
+<End EntitySet="CustomAttributeDefinitionCollection" Role="r_CustomAttributeDefinition"/>
+</AssociationSet>
+<AssociationSet Name="Task_2_r_CustomAttribute" Association="com.sap.bpm.wfs.tcm.metadata.Task_2_r_CustomAttribute">
+<End EntitySet="TaskCollection" Role="Task"/>
+<End EntitySet="CustomAttributeCollection" Role="r_CustomAttribute"/>
+</AssociationSet>
+<FunctionImport Name="DecisionOptions" ReturnType="Collection(com.sap.bpm.wfs.tcm.metadata.DecisionOption)" m:HttpMethod="GET">
+<Parameter Name="SAP__Origin" Type="Edm.String" Mode="In" MaxLength="16"/>
+<Parameter Name="InstanceID" Type="Edm.String" Mode="In"/>
+</FunctionImport>
+<FunctionImport Name="Claim" ReturnType="com.sap.bpm.wfs.tcm.metadata.Task" EntitySet="TaskCollection" m:HttpMethod="POST">
+<Parameter Name="SAP__Origin" Type="Edm.String" Mode="In" MaxLength="16"/>
+<Parameter Name="InstanceID" Type="Edm.String" Mode="In"/>
+<Parameter Name="Comments" Type="Edm.String" Mode="In" Nullable="true"/>
+</FunctionImport>
+<FunctionImport Name="Release" ReturnType="com.sap.bpm.wfs.tcm.metadata.Task" EntitySet="TaskCollection" m:HttpMethod="POST">
+<Parameter Name="SAP__Origin" Type="Edm.String" Mode="In" MaxLength="16"/>
+<Parameter Name="InstanceID" Type="Edm.String" Mode="In"/>
+</FunctionImport>
+<FunctionImport Name="Forward" ReturnType="com.sap.bpm.wfs.tcm.metadata.Task" EntitySet="TaskCollection" m:HttpMethod="POST">
+<Parameter Name="SAP__Origin" Type="Edm.String" Mode="In" MaxLength="16"/>
+<Parameter Name="InstanceID" Type="Edm.String" Mode="In"/>
+<Parameter Name="ForwardTo" Type="Edm.String" Mode="In" Nullable="false"/>
+</FunctionImport>
+<FunctionImport Name="DeleteSubstitutionRule" ReturnType="com.sap.bpm.wfs.tcm.metadata.SubstitutionRuleReturn" m:HttpMethod="POST">
+<Parameter Name="SAP__Origin" Type="Edm.String" Mode="In" MaxLength="16"/>
+<Parameter Name="SubstitutionRuleID" Type="Edm.String" Mode="In" MaxLength="64"/>
+</FunctionImport>
+<FunctionImport Name="EnableSubstitutionRule" ReturnType="com.sap.bpm.wfs.tcm.metadata.SubstitutionRule" EntitySet="SubstitutionRuleCollection" m:HttpMethod="POST">
+<Parameter Name="SAP__Origin" Type="Edm.String" Mode="In" MaxLength="16"/>
+<Parameter Name="SubstitutionRuleID" Type="Edm.String" Mode="In" MaxLength="64"/>
+<Parameter Name="Enabled" Type="Edm.Boolean" Mode="In"/>
+</FunctionImport>
+</EntityContainer>
+</Schema>
+</edmx:DataServices>
+</edmx:Edmx>

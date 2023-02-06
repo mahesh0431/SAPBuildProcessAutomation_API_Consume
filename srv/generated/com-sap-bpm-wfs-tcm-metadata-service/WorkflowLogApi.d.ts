@@ -1,0 +1,454 @@
+/*
+ * Copyright (c) 2023 SAP SE or an SAP affiliate company. All rights reserved.
+ *
+ * This is a generated file powered by the SAP Cloud SDK for JavaScript.
+ */
+import { WorkflowLog } from './WorkflowLog';
+import { WorkflowLogRequestBuilder } from './WorkflowLogRequestBuilder';
+import { UserInfoApi } from './UserInfoApi';
+import {
+  CustomField,
+  DefaultDeSerializers,
+  DeSerializers,
+  AllFields,
+  EntityBuilderType,
+  EntityApi,
+  FieldBuilder,
+  OrderableEdmTypeField,
+  OneToOneLink
+} from '@sap-cloud-sdk/odata-v2';
+export declare class WorkflowLogApi<
+  DeSerializersT extends DeSerializers = DefaultDeSerializers
+> implements EntityApi<WorkflowLog<DeSerializersT>, DeSerializersT>
+{
+  deSerializers: DeSerializersT;
+  constructor(deSerializers?: DeSerializersT);
+  private navigationPropertyFields;
+  _addNavigationProperties(linkedApis: [UserInfoApi<DeSerializersT>]): this;
+  entityConstructor: typeof WorkflowLog;
+  requestBuilder(): WorkflowLogRequestBuilder<DeSerializersT>;
+  entityBuilder(): EntityBuilderType<
+    WorkflowLog<DeSerializersT>,
+    DeSerializersT
+  >;
+  customField<NullableT extends boolean = false>(
+    fieldName: string,
+    isNullable?: NullableT
+  ): CustomField<WorkflowLog<DeSerializersT>, DeSerializersT, NullableT>;
+  private _fieldBuilder?;
+  get fieldBuilder(): FieldBuilder<typeof WorkflowLog, DeSerializersT>;
+  private _schema?;
+  get schema(): {
+    SAP_ORIGIN: OrderableEdmTypeField<
+      WorkflowLog<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >,
+      DeSerializersT,
+      'Edm.String',
+      false,
+      true
+    >;
+    INSTANCE_ID: OrderableEdmTypeField<
+      WorkflowLog<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >,
+      DeSerializersT,
+      'Edm.String',
+      false,
+      true
+    >;
+    EVENT_ORDER: OrderableEdmTypeField<
+      WorkflowLog<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >,
+      DeSerializersT,
+      'Edm.Int32',
+      false,
+      true
+    >;
+    REFERENCE_INSTANCE_ID: OrderableEdmTypeField<
+      WorkflowLog<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >,
+      DeSerializersT,
+      'Edm.String',
+      false,
+      true
+    >;
+    PERFORMED_BY: OrderableEdmTypeField<
+      WorkflowLog<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >,
+      DeSerializersT,
+      'Edm.String',
+      true,
+      true
+    >;
+    PERFORMED_BY_NAME: OrderableEdmTypeField<
+      WorkflowLog<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >,
+      DeSerializersT,
+      'Edm.String',
+      true,
+      true
+    >;
+    STATUS: OrderableEdmTypeField<
+      WorkflowLog<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >,
+      DeSerializersT,
+      'Edm.String',
+      false,
+      true
+    >;
+    TIMESTAMP: OrderableEdmTypeField<
+      WorkflowLog<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >,
+      DeSerializersT,
+      'Edm.DateTime',
+      true,
+      true
+    >;
+    DESCRIPTION: OrderableEdmTypeField<
+      WorkflowLog<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >,
+      DeSerializersT,
+      'Edm.String',
+      true,
+      true
+    >;
+    SUPPORTS_NAVIGATION: OrderableEdmTypeField<
+      WorkflowLog<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >,
+      DeSerializersT,
+      'Edm.Boolean',
+      true,
+      true
+    >;
+    RESULT: OrderableEdmTypeField<
+      WorkflowLog<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >,
+      DeSerializersT,
+      'Edm.String',
+      true,
+      true
+    >;
+    RESULT_TYPE: OrderableEdmTypeField<
+      WorkflowLog<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >,
+      DeSerializersT,
+      'Edm.String',
+      true,
+      true
+    >;
+    CREATION_TIMESTAMP: OrderableEdmTypeField<
+      WorkflowLog<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >,
+      DeSerializersT,
+      'Edm.DateTime',
+      true,
+      true
+    >;
+    END_TIMESTAMP: OrderableEdmTypeField<
+      WorkflowLog<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >,
+      DeSerializersT,
+      'Edm.DateTime',
+      true,
+      true
+    >;
+    /**
+     * Static representation of the one-to-one navigation property {@link performedByDetails} for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    PERFORMED_BY_DETAILS: OneToOneLink<
+      WorkflowLog<DeSerializersT>,
+      DeSerializersT,
+      UserInfoApi<DeSerializersT>
+    >;
+    ALL_FIELDS: AllFields<
+      WorkflowLog<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >
+    >;
+  };
+}
+//# sourceMappingURL=WorkflowLogApi.d.ts.map
